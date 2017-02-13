@@ -1,0 +1,39 @@
+.modal{
+  position:fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  visibility: hidden;
+  z-index:-1;
+  pointer-events: none;
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  background:transparentize(#000,0.2);
+
+  &__box{
+    width: 200px;
+    height: 100px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    background: #fff;
+    border-radius:5px;
+    border:1px solid #C3C3C3;
+
+    p{
+      margin: 20px 0;
+      font-size:24px;
+      text-align:center;
+    }
+  }
+
+  &.active{
+    z-index:10;
+    visibility: visible;
+    pointer-events: all;
+  }
+}

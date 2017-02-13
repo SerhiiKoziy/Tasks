@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+</head>
+
+<body>
+<script>
+  var array = [
+  	{"name":"root", "parentId":null, "id":100},
+  	{"name":"1stlevelChild1", "parentId":100, "id":201},
+  	{"name":"1stlevelChild2", "parentId":100, "id":202},
+  	{"name":"2ndlevelChild1", "parentId":201, "id":301},
+  	{"name":"2ndlevelChild2", "parentId":201, "id":302}
+  ];
+  console.log(array)
+
+  function arrayToTree(arr){
+    const treeStart = arr.find(item => item.parentId === null);
+    return getChildren(treeStart, arr);
+  }
+  function getChildren(item, arr){
+    const children = arr.filter(child => item.id === child.parentId);
+    return Object.assign({},item, {
+      children: children.map(child => getChildren(child, arr)),
+    });
+  }
+  var result = arrayToTree(array);
+  console.dir(arrayToTree(array));
+  document.write(`Входные данные: <pre>${JSON.stringify(array, null, 2)}</pre>`);
+  document.write(`Результат: <pre>${JSON.stringify(result, null, 2)}</pre>`);
+</script>
+
+</body>
+</html>

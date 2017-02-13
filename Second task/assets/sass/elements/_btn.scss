@@ -1,0 +1,27 @@
+.btn {
+  cursor:pointer;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 10px 25px;
+  line-height: 1.2;
+  border-radius: 3px;
+  color: #4D4D4D;
+  background: #fff;
+  border: 1px solid transparentize(#000,0.8);
+  
+  transition: color 0.3s, background 0.3s;
+
+  &--fixed-w {
+    width:100%;
+  }
+  &:hover {
+    background: transparentize(#000,0.85);
+  }
+  &--danger {
+    background: red;
+    color: #fff;
+    &:hover {
+      background: transparentize(#f00,0.3);
+    }
+  }
+}
